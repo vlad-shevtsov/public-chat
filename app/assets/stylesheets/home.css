@@ -1,0 +1,42 @@
+
+.message-board {
+  overflow: auto;
+  margin: auto;
+  width: 500px;
+  height: 450px;
+  box-shadow: inset 0 0 10px;
+}
+
+.input-area {
+  padding-top: 10px;
+  overflow: auto;
+  margin: auto;
+  width: 501px;
+}
+textarea {
+  resize: vertical;
+  width: 495px;
+}
+.chat{
+  padding-top: 25px;
+  margin: auto;
+
+}
+// .chat-window{
+//   margin: auto;
+// }
+.message {
+  word-wrap: break-word;
+  margin: 10px;
+}
+.user-info {
+  font-weight: bold;
+}
+.message-text {
+  margin-left: 10px;
+}
+.participants {
+  height: 515px;
+  width: 150px;
+  float: right;
+}

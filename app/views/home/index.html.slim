@@ -1,0 +1,20 @@
+- if current_chat
+  div class='chat'
+    div class='participants'
+        - User.all.each do |user|
+          = user.name
+          br
+    div class='chat-window'
+      div class='message-board'
+        - if @messages
+          - @messages.each do |message|
+            div class='message' message-id='#{message.id}'
+              div class='user-info'
+                = User.user_name(message.sender_id)
+              dev class='message-text'
+                = message.message
+      div class='input-area'
+        textarea class='input' rows='3'
+- else
+  div class='new-chat'
+    = link_to 'NewChat', chats_path, method: :post

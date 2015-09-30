@@ -29,6 +29,8 @@ gem 'pry'
 
 gem 'slim'
 
+gem 'thin'
+
 gem "rails_12factor", group: :production
 
 gem "omniauth-google-oauth2", "~> 0.2.1"

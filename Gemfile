@@ -29,6 +29,8 @@ gem 'pry'
 
 gem 'slim'
 
+gem "rails_12factor", group: :production
+
 gem "omniauth-google-oauth2", "~> 0.2.1"
 
 # Use ActiveModel has_secure_password

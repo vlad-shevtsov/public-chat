@@ -1,7 +1,7 @@
 var signin = function(){
   $('.input').keypress(function(e){
     if(e.which == 13){
-      if($('textarea').val().length>0){
+      if($('textarea').val().length > 0){
         $.ajax({
           url: '/messages',
           type: 'POST',

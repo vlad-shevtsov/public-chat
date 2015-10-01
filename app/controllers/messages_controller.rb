@@ -1,6 +1,4 @@
 class MessagesController < ApplicationController
-
-
   def create
     if current_user
       if message = current_chat.messages.create(message_params)
@@ -8,7 +6,7 @@ class MessagesController < ApplicationController
           message: message.message,
           username: User.user_name(message.sender_id),
           id: message.id
-          head :ok  
+        head :ok  
       end
     else
       head :error

@@ -29,11 +29,9 @@ RSpec.describe SessionsController, type: :controller do
     before(:each) do |test|
       session[:user_id] = user.id
     end
-
     subject { delete :destroy, id: "sing_out" }
 
     it 'update exists attribute' do
-      
       subject
       expect(User.first.exists).to eq false
     end

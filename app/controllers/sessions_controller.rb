@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.from_omniauth(env['omniauth.auth'])
+    User.find_by_id(user.id).update_attributes(exists: true)
     ActionCable.server.broadcast 'sessions',
           id: user.id,
           create: true,

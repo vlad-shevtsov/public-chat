@@ -6,9 +6,9 @@ development: &development
   :inline: true
 test: *development
 production: &production  
-  :url: redis://redistogo:13e59885e46d0b2d083af59ba0c4a987@soapfish.redistogo.com:10176
-  :host: soapfish.redistogo.com
-  :port: 10176
-  :password: 13e59885e46d0b2d083af59ba0c4a987
+  :url: redis://redistogo:35e053ffbe8614367edbfeb1058d02cc@bluegill.redistogo.com:9644
+  :host: bluegill.redistogo.com
+  :port: 9644
+  :password: 35e053ffbe8614367edbfeb1058d02cc
   :inline: true
   :timeout: 1

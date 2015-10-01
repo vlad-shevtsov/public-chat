@@ -8,7 +8,6 @@ class MessagesController < ApplicationController
           message: message.message,
           username: User.user_name(message.sender_id),
           id: message.id
-          binding.pry
           head :ok  
         end
     else

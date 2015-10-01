@@ -9,9 +9,9 @@ class MessagesController < ApplicationController
           username: User.user_name(message.sender_id),
           id: message.id
           head :ok  
-        end
+      end
     else
-      render json { head :error }
+      head :error
     end
   end
 

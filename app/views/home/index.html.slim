@@ -1,9 +1,9 @@
 - if current_chat
   div class='chat'
     div class='participants'
-        - User.all.each do |user|
-          = user.name
-          br
+        - User.where(exists: true).each do |user|
+          p class='online-users' user-id='#{user.id}'
+            = user.name
     div class='chat-window'
       div class='message-board'
         - if @messages

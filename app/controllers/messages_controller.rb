@@ -1,16 +1,19 @@
 class MessagesController < ApplicationController
 
-  def index
-  end
 
   def create
-    message = current_chat.messages.create(message_params)
-    ActionCable.server.broadcast 'messages',
-      message: message.message,
-      username: User.user_name(message.sender_id),
-      id: message.id
-    
-    head :ok
+    if current_user
+      if message = current_chat.messages.create(message_params)
+        ActionCable.server.broadcast 'messages',
+          message: message.message,
+          username: User.user_name(message.sender_id),
+          id: message.id
+          binding.pry
+          head :ok  
+        end
+    else
+      render json { head :error }
+    end
   end
 
   private

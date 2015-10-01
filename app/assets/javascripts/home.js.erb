@@ -1,0 +1,21 @@
+var signin = function(){
+  $('.input').keypress(function(e){
+    if(e.which == 13){
+      if($('textarea').val().length>0){
+        $.ajax({
+          url: '/messages',
+          type: 'POST',
+          data: { message: $('textarea').val() },
+          error: function() {
+           location.pathname = '/auth/google_oauth2'
+          }
+        });
+        $('textarea').val('');
+      }
+      e.preventDefault();
+    }
+  })
+}
+
+$(document).ready(signin);
+$(document).on('page:load', signin);

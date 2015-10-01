@@ -1,12 +1,21 @@
 class SessionsController < ApplicationController
+
   def create
     user = User.from_omniauth(env['omniauth.auth'])
+    ActionCable.server.broadcast 'sessions',
+          id: user.id,
+          create: true,
+          name: user.name
     user.save!
     session[:user_id] = user.id
-    redirect_to root_path
+    redirect_to root_path    
   end
 
   def destroy
+    current_user.update_attributes(exists: false)
+    ActionCable.server.broadcast 'sessions',
+          id: current_user.id,
+          create: false
     session[:user_id] = nil
     redirect_to root_path
   end
